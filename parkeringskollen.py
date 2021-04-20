@@ -32,11 +32,12 @@ def send_mail(number):
     sender, password, recieve = read_creds()
     port = 465
     message = f"""\
-    Subject: Parking!
-    
-    Number of free slots down to: {number}.
-    Hurry Hurry!
-    """
+Subject: Parking!
+
+
+Number of free slots down to: {number}.
+Hurry Hurry!
+"""
     context = ssl.create_default_context()
     print(f"warning, number is {number}, sending mail")
     with smtplib.SMTP_SSL("smtp.gmail.com", port, context=context) as server:
@@ -54,7 +55,8 @@ def main():
             send_mail(number)
         else:
             print(f"number is = {number}")
-        time.sleep(360)
+        time.sleep(3600)
+
 
 if __name__ == '__main__':
     main()
